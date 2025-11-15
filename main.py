@@ -1,29 +1,25 @@
-# Намеренно создаем настоящую ошибку
 def calculate_total(price, quantity, discount=0):
-    return price * quantity * (1 - discount / 100)  # УБИРАЕМ вызов функции = ЛОГИЧЕСКАЯ ОШИБКА!
+    return price * quantity * (1 - discount / 100)
+
 
 def calculate_discount_multiplier(discount):
     return 1 - discount / 100
 
+
 def apply_discount(price, discount):
     return price * (1 - discount / 100)
+
 
 def display_order_summary(price, quantity, discount):
     total = calculate_total(price, quantity, discount)
     return f"Заказ: {quantity} шт. по {price} руб. со скидкой {discount}% = {total} руб."
+
+
 def check_stock(quantity):
     """Проверяет уровень запасов"""
-    if quantity < 10:  # Меняем порог с 5 на 10
-        return "НИЗКИЙ ЗАПАС!"  # Меняем сообщение
+    if quantity < 10:  # Оставляем порог 10 из main
+        return "НИЗКИЙ ЗАПАС!"  # Оставляем сообщение из main
     return "OK"
-
-
-def check_stock(quantity):
-    """Проверяет уровень запасов"""
-    if quantity < 5:
-        return "Низкий запас"
-    return "Запас нормальный"
-
 
 
 if __name__ == "__main__":
@@ -31,6 +27,6 @@ if __name__ == "__main__":
     total = calculate_total(price=150, quantity=5, discount=10)
     print(f"Итого: {total} руб.")
 
-    # Новая функциональность - проверка запасов
+
     stock_status = check_stock(3)
     print(f"Статус запасов: {stock_status}")
