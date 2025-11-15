@@ -11,6 +11,11 @@ def apply_discount(price, discount):
 def display_order_summary(price, quantity, discount):
     total = calculate_total(price, quantity, discount)
     return f"Заказ: {quantity} шт. по {price} руб. со скидкой {discount}% = {total} руб."
+def check_stock(quantity):
+    """Проверяет уровень запасов"""
+    if quantity < 10:  # Меняем порог с 5 на 10
+        return "НИЗКИЙ ЗАПАС!"  # Меняем сообщение
+    return "OK"
 
 if __name__ == "__main__":
     print("Расчет стоимости заказа:")
