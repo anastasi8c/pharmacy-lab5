@@ -8,6 +8,10 @@ def alculate_discount_multiplier(discount):
 def apply_discount(price, discount):
     return price * (1 - discount / 100)
 
+def display_order_summary(price, quantity, discount):
+    total = calculate_total(price, quantity, discount)
+    return f"Заказ: {quantity} шт. по {price} руб. со скидкой {discount}% = {total} руб."
+
 if __name__ == "__main__":
     print("Расчет стоимости заказа:")
     total = calculate_total(price=150, quantity=5, discount=10)
